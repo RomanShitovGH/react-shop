@@ -1,3 +1,3 @@
 # React Shop Portfolio Project
 
-[React Shop](https://github.com/RomanShitovGH/react-shop).
+[React Shop](https://romanshitovgh.github.io/react-shop/)
