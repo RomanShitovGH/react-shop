@@ -1,5 +1,3 @@
-/*!order.length ? setOrder([good]) :*/
-
 /**
  * @license React
  * react-dom.production.min.js
