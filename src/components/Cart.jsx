@@ -1,27 +1,16 @@
-function Cart(props) {
-  const { quantity = [], handleBasketShow = Function.prototype } = props;
-  //const [uniqueArr, setUniqueArr] = useState([]);
+import { useContext } from "react";
+import { ShopContext } from "../context";
 
-  /*useEffect(() => {
-    quantity.filter((item) => {
-      let i = uniqueArr.findIndex((x) => x.id === item.id);
+function Cart() {
+  const { order = [], basketShow = Function.prototype } =
+    useContext(ShopContext);
 
-      if (i === -1) {
-        !uniqueArr.length
-          ? setUniqueArr([item])
-          : setUniqueArr([...uniqueArr, item]);
-      }
-    });
-
-    //console.log("quantity =", quantity);
-  }, [quantity]);*/
+  const quantity = order.length;
 
   return (
-    <div className="cart blue darken-4 white-text" onClick={handleBasketShow}>
+    <div className="cart blue darken-4 white-text" onClick={basketShow}>
       <i className="material-icons">shopping_cart</i>
-      {quantity ? (
-        <span className="cart-quantity">{quantity.length}</span>
-      ) : null}
+      {quantity ? <span className="cart-quantity">{quantity}</span> : null}
     </div>
   );
 }

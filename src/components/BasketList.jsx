@@ -1,13 +1,10 @@
+import { useContext } from "react";
+import { ShopContext } from "../context";
 import { BascketItem } from "./BasketItem";
 
-function BascketList(props) {
-  const {
-    order = [],
-    handleBasketShow = Function.prototype,
-    removeFromBasket = Function.prototype,
-    plusGood = Function.prototype,
-    minusGood = Function.prototype,
-  } = props;
+function BascketList() {
+  const { order = [], basketShow = Function.prototype } =
+    useContext(ShopContext);
 
   const totalPrice = order.reduce((sum, item) => {
     return sum + item.price * item.quantity;
@@ -17,20 +14,12 @@ function BascketList(props) {
     <ul className="collection basket-list">
       <li className="collection-item active">
         Корзина
-        <div class="secondary-content close-btn" onClick={handleBasketShow}>
+        <div class="secondary-content close-btn" onClick={basketShow}>
           <i class="material-icons">clear</i>
         </div>
       </li>
       {order.length ? (
-        order.map((item) => (
-          <BascketItem
-            key={item.id}
-            {...item}
-            removeFromBasket={removeFromBasket}
-            plusGood={plusGood}
-            minusGood={minusGood}
-          />
-        ))
+        order.map((item) => <BascketItem key={item.id} {...item} />)
       ) : (
         <li className="collection-item">Корзина пуста</li>
       )}

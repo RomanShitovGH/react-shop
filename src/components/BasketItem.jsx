@@ -1,13 +1,10 @@
+import { useContext } from "react";
+import { ShopContext } from "../context";
+
 function BascketItem(props) {
-  const {
-    id,
-    name,
-    price,
-    quantity,
-    removeFromBasket = Function.prototype,
-    plusGood = Function.prototype,
-    minusGood = Function.prototype,
-  } = props;
+  const { id, name, price, quantity } = props;
+
+  const { removeFromBasket, plusGood, minusGood } = useContext(ShopContext);
 
   return (
     <li className="collection-item valign-wrapper">

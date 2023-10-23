@@ -1,6 +1,9 @@
+import { useContext } from "react";
+import { ShopContext } from "../context";
+
 function GoodsItem(props) {
-  const { id, name, description, price, full_background, addCartCallBack } =
-    props;
+  const { id, name, description, price, full_background } = props;
+  const { addToBasket } = useContext(ShopContext);
 
   return (
     <div className="card" id={id}>
@@ -15,7 +18,7 @@ function GoodsItem(props) {
         <button
           className="btn"
           onClick={() =>
-            addCartCallBack({ id: id, name: name, price: price, quantity: 1 })
+            addToBasket({ id: id, name: name, price: price, quantity: 1 })
           }
         >
           Купить
